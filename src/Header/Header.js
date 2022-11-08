@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../UserContext/AuthProvider/AuthProvider';
 import img from './education.png';
 
 
 
 
 const Header = () => {
-
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut();
+    }
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -16,10 +20,28 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link to='/myreviews'>My Reviews</Link></li>
-                            <li><Link to='/blogs'>Blogs</Link></li>
-                            <li><Link to='/login'>Log in</Link></li>
+                            {
+                                user?.email && <li><Link to='/myreviews'>My Reviews</Link></li>
+                            }
 
+                            <li><Link to='/services'>Services</Link></li>
+                            <li><Link to='/blogs'>Blogs</Link></li>
+                            <li tabIndex={0}>
+                                <Link className="btn btn-ghost">
+                                    {user?.photoURL ? <>
+                                        <img className='h-9 rounded mr-2' src={user.photoURL} />{user?.displayName}
+                                    </> : <Link to='/login'> Log in </Link>}
+                                </Link>
+
+                                <ul className="p-2 bg-base-100">
+                                    <li>{
+                                        user?.email ? <button onClick={handleLogOut} className='btn-outline'>Log out</button> : <Link to='/login'>Log in</Link>
+                                    }</li>
+                                    {
+                                        user?.email && <li><Link to='/profile'>Profile</Link></li>
+                                    }
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
@@ -28,13 +50,35 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to='/myreviews'>My Reviews</Link></li>
+                        {
+                            user?.email && <li><Link to='/myreviews'>My Reviews</Link></li>
+                        }
+                        <li><Link to='/services'>Services</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
-                        <li><Link to='/login'>Log in</Link></li>
+
+                        <li className='ml-9' tabIndex={0}>
+                            <Link className="btn btn-ghost">
+                                {user?.photoURL ? <>
+                                    <img className='h-9 rounded mr-2' src={user.photoURL} />{user?.displayName}
+                                </> : <Link to='/login'> Log in </Link>}
+                            </Link>
+
+                            <ul className="p-2 bg-base-100">
+                                <li>{
+                                    user?.email ? <button onClick={handleLogOut} className='btn-outline'>Log out</button> : <Link to='/login'>Log in</Link>
+                                }</li>
+                                {
+                                    user?.email && <li><Link to='/profile'>Profile</Link></li>
+                                }
+                            </ul>
+                        </li>
+
+
+
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <li><Link className="btn">Profile</Link></li>
+
                 </div>
             </div>
         </div>

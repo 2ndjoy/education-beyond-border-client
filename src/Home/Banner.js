@@ -33,7 +33,7 @@ const bannerData = [
 
 const Banner = () => {
     return (
-        <div>
+        <div className='my-9'>
             <div className="carousel w-full py-10">
 
                 {

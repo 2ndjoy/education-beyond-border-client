@@ -5,7 +5,7 @@ import img from '../Header/education.png'
 const Footer = () => {
     return (
         <div>
-            <footer className="footer h-96 p-10 bg-neutral text-neutral-content">
+            <footer className="footer h-96 p-10 bg-neutral text-white text-neutral-content">
                 <div>
                     <img src={img} className='w-24' alt="" />
                     <b>Education Beyond Border<br />Providing reliable services since 1999</b>
