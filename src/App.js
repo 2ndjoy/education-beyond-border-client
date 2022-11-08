@@ -1,10 +1,18 @@
-import logo from './logo.svg';
+import { Toaster } from 'react-hot-toast';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import routes from './Routes/Routes';
 
 function App() {
+
   return (
-    <div className="App">
-      <h1 className='text-3xl font-bold underline'>Hello </h1>
+
+    <div data-theme="cupcake">
+      <RouterProvider router={routes}></RouterProvider>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </div>
   );
 }
