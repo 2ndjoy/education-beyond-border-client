@@ -8,6 +8,11 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
+    // For theme changing 
+    const [theme, setTheme] = useState(true);
+
+
+
     const auth = getAuth(app);
 
 
@@ -57,6 +62,7 @@ const AuthProvider = ({ children }) => {
 
 
     const authInfo = {
+        theme, setTheme,
         user,
         createUser, login, loading, setLoading, logOut, updateProfileUser, googleSignIn
     }

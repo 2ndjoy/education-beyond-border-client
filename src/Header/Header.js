@@ -1,15 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../UserContext/AuthProvider/AuthProvider';
 import img from './education.png';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 
 
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
+    // const [theme, setTheme] = useState(true);
+
+    const { user, logOut, theme, setTheme } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut();
+    }
+
+
+
+    const handleNight = () => {
+        const newTheme = false;
+        setTheme(newTheme);
+    }
+    const handleDay = () => {
+        const newTheme = true;
+        setTheme(newTheme);
+
     }
     return (
         <div>
@@ -78,7 +93,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-
+                    {theme ? <button className='btn btn-ghost' onClick={handleNight}>
+                        <FaMoon />
+                    </button> : <button className='btn btn-ghost' onClick={handleDay}><FaSun /></button>}
                 </div>
             </div>
         </div>

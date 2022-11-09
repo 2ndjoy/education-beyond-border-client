@@ -9,7 +9,7 @@ const Home = () => {
             <Banner></Banner>
 
             <About></About>
-            <h2 className='text-2xl font-bold text-center my-4'>My services:</h2>
+            <h2 className='text-2xl font-bold text-center text-primary'>My services</h2>
             <Service></Service>
 
         </div>

@@ -10,13 +10,13 @@ const Service = () => {
             .then(data => setServices(data))
     }, [])
     return (
-        <div className='lg:ml-24 grid lg:grid-cols-3 sm:grid-cols-1 my-11'>
+        <div className='lg:ml-24 grid lg:grid-cols-3 sm:grid-cols-1 my-16'>
             {
                 service.map(servic => <ServiceCard
                     key={servic._id} servic={servic}
                 ></ServiceCard>)
             }
-            <Link to='/services' className='text-center'> <button className='btn w-full'>See all</button></Link>
+            <Link to='/services'> <button className='btn w-full'>See all</button></Link>
         </div>
     );
 };
