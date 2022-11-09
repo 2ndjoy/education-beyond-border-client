@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BannerItem = ({ slide }) => {
     const { sliderImg, id, prev, next } = slide;
@@ -26,7 +27,7 @@ const BannerItem = ({ slide }) => {
                 </p>
             </div>
             <div className="absolute flex justify-start transform -translate-y-1/2 right-60 top-3/4 gap-3">
-                <button className="btn btn-primary">Discover more</button>
+                <Link to='/services'> <button className='btn btn-primary'>Discover More</button></Link>
                 <button className="btn btn-outline btn-primary">Learn More</button>
             </div>
         </div>
