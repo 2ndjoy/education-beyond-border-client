@@ -18,7 +18,7 @@ const Reviews = () => {
             {/* display user's review */}
             {/* User review */}
             <div className='lg:mx-24 my-11'>
-                <h2>This is review</h2>
+                <h2>Please add your review</h2>
                 <div className=' grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <textarea name='message' className="textarea textarea-secondary w-full my-5" placeholder="Your message"></textarea>
                 </div>
