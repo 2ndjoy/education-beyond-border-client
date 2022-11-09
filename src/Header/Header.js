@@ -38,8 +38,9 @@ const Header = () => {
                             {
                                 user?.email && <li><Link to='/myreviews'>My Reviews</Link></li>
                             }
-
-                            <li><Link to='/services'>Services</Link></li>
+                            {
+                                user?.email && <li><Link to='/addService'>Add Service</Link></li>
+                            }
                             <li><Link to='/blogs'>Blogs</Link></li>
                             <li tabIndex={0}>
                                 <Link className="btn btn-ghost">
@@ -68,7 +69,9 @@ const Header = () => {
                         {
                             user?.email && <li><Link to='/myreviews'>My Reviews</Link></li>
                         }
-                        <li><Link to='/services'>Services</Link></li>
+                        {
+                            user?.email && <li><Link to='/addService'>Add Service</Link></li>
+                        }
                         <li><Link to='/blogs'>Blogs</Link></li>
 
                         <li className='ml-9' tabIndex={0}>

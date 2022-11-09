@@ -48,6 +48,10 @@ const routes = createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+            {
+                path: '*',
+                element: <div className="flex"> <img src="https://storytale-public2.b-cdn.net/2021/08/16/2fb9b052-223a-4ca1-bc13-a60b802a6a88-Space.png?height=600" className="flex items-center justify-center" alt="404" /> <img src="https://storytale-public2.b-cdn.net/2021/08/16/d76e6bc7-1768-499c-8b14-33313216ca3d-Error404.png?height=600" alt="404" /></div>
             }
         ]
     }
