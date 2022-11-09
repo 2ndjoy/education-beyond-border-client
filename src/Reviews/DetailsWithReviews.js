@@ -8,7 +8,7 @@ const DetailsWithReviews = () => {
     return (
         <div className='lg:flex'>
             <div className='lg:w-2/4'>
-                <div className="hero min-h-screen bg-base-200">
+                <div className="hero min-h-screen">
                     <div className="hero-content flex-col lg:flex-row">
                         <img src={img} className="max-w-sm rounded-lg shadow-2xl" />
                         <div>
@@ -20,7 +20,7 @@ const DetailsWithReviews = () => {
                 </div>
             </div>
             <div className='lg:w-2/4'>
-                <p className='text-primary text-xl my-5 text-center font-bold'>Here are are reviews of my work regarding <span className='text-blue-400'>{serviceName}</span></p>
+                <p className='text-blue-600 text-xl my-5 text-center font-bold'>Here are are reviews of my work regarding <span className='text-blue-600'>{serviceName}</span></p>
                 <Reviews></Reviews>
             </div>
         </div>
