@@ -20,7 +20,7 @@ const DetailsWithReviews = () => {
                 </div>
             </div>
             <div className='lg:w-2/4'>
-                <p className='text-primary text-center'>Here are are reviews of my work regarding {serviceName}</p>
+                <p className='text-primary text-xl my-5 text-center font-bold'>Here are are reviews of my work regarding <span className='text-blue-400'>{serviceName}</span></p>
                 <Reviews></Reviews>
             </div>
         </div>
