@@ -7,6 +7,7 @@ import Registration from "../LoginAndRegistration/Registration";
 import Profile from "../Profile/Profile";
 import DetailsWithReviews from "../Reviews/DetailsWithReviews";
 import Myreviews from "../Reviews/Myreviews";
+import Service from "../Services/Service";
 import Services from "../Services/Services";
 import PrivateRoute from "./PrivateRoute";
 
