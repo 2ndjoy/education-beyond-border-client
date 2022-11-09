@@ -42,11 +42,6 @@ const Login = () => {
             .then(err => console.error(err))
     }
 
-    const handleFaceBookSignIn = () => {
-
-    }
-
-
 
     return (
         <div>
@@ -81,7 +76,7 @@ const Login = () => {
                                 </p>
                             </label>
                         </form>
-                        <p className='text-center my-5 items-center align-center'>Sign in with <button className='mx-2' onClick={handleGoogleSignIn}><BsGoogle></BsGoogle></button> or <button className='mx-2' onClick={handleFaceBookSignIn}><BsFacebook></BsFacebook></button></p>
+                        <p className='text-center my-5 items-center align-center'>Sign in with <button className='mx-2' onClick={handleGoogleSignIn}><BsGoogle></BsGoogle></button></p>
 
                     </div>
                 </div>

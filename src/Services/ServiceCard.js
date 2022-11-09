@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Gallery from '../Gallery';
 
 const ServiceCard = ({ servic }) => {
-    const { serviceName, details, img } = servic;
+    const { serviceName, details, img, _id } = servic;
     return (
         <div className="card w-96 bg-base-100 shadow-xl my-4">
             <figure><Gallery
@@ -13,7 +13,7 @@ const ServiceCard = ({ servic }) => {
                 <h2 className="card-title">{serviceName}</h2>
                 <p>{details}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary"><Link to='/detailsReviews'>Show Details</Link></button>
+                    <button className="btn btn-primary"><Link to={`/services/${_id}`}>Show Details</Link></button>
                 </div>
             </div>
         </div>
