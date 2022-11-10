@@ -12,32 +12,27 @@ const Myreviews = () => {
             .then(res => res.json())
             .then(data => setMyReviews(data))
     }, [user.email])
-
+    const [revvv] = myreviews;
 
     const handleUpdate = (event) => {
         event.preventDefault();
         const form = event.target;
         const review = form.review.value;
-        console.log(review)
-        // fetch(`http://localhost:5000/userreviews/${_id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'content-type': 'application/json',
+        // console.log(review)
+        console.log(url, review);
 
-        //     },
-        //     body: JSON.stringify(myreviews)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         if (data.modifiedCount > 0) {
-        //             const remaining = myreviews.filter(odr => odr._id !== _id);
-        //             const approving = myreviews.find(odr => odr._id === _id)
-        //             approving.status = 'Approved';
-        //             const newMyreviews = [...remaining, approving];
-        //             setMyReviews(newMyreviews);
-        //         }
-        //     })
+
+        fetch(`http://localhost:5000/userreviews/${revvv._id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ review: review })
+
+
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
 
     }
 
@@ -80,7 +75,7 @@ const Myreviews = () => {
 
                         <form onSubmit={handleUpdate} className='lg:mx-24 my-2 lg:flex lg:justify-evenly items-center'>
                             <div className=''>
-                                <textarea name='review' className="textarea textarea-secondary w-full my-5" value={myOrder.review} required></textarea>
+                                <textarea name='review' className="textarea textarea-secondary w-full my-5" defaultValue={myOrder.review} required></textarea>
                             </div>
                             <input className='btn btn-success mx-2' type="submit" value="Edit" />
 
