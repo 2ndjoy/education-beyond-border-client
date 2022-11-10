@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../UserContext/AuthProvider/AuthProvider';
 
 const Myreviews = () => {
@@ -32,7 +33,12 @@ const Myreviews = () => {
 
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    toast.success('Updated successfully')
+                }
+            })
 
     }
 

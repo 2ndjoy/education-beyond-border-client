@@ -7,6 +7,7 @@ import Registration from "../LoginAndRegistration/Registration";
 import Profile from "../Profile/Profile";
 import DetailsWithReviews from "../Reviews/DetailsWithReviews";
 import Myreviews from "../Reviews/Myreviews";
+import AddService from "../Services/AddService/AddService";
 import Service from "../Services/Service";
 import Services from "../Services/Services";
 import PrivateRoute from "./PrivateRoute";
@@ -22,7 +23,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/blogs',
-                element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
+                element: <Blogs></Blogs>
             },
             {
                 path: '/myreviews',
@@ -50,10 +51,11 @@ const routes = createBrowserRouter([
                 path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
             },
-            // {
-            //     path: '/reviews',
-            //     element: 
-            // },
+            {
+                path: '/addService',
+                element: <AddService></AddService>,
+                loader: () => fetch('http://localhost:5000/services')
+            },
             {
                 path: '*',
                 element: <div className="flex">

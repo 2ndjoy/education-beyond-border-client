@@ -48,10 +48,12 @@ const DetailsWithReviews = () => {
             .then(data => {
                 console.log(data.insertedId)
                 if (data.acknowledged) {
-                    form.reset();
+
                     setLoading(true);
-                    window.confirm('Thanks for your review')
+                    form.reset();
+                    toast.success('Thanks for your review')
                 }
+
             })
             .catch(err => console.error(err))
 
