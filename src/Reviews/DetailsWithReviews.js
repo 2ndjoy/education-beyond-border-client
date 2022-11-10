@@ -77,7 +77,7 @@ const DetailsWithReviews = () => {
                 <div>
                     {/* Other's review */}
                     {
-                        reviews.map(rev =>
+                        reviews.length === 0 ? 'No review added' : reviews.map(rev =>
                             <div className='grid text-center justify-center my-11 mx-8 border-2 border-primary rounded-lg p-4'>
                                 <div className='flex items-center gap-2 my-4'>
                                     <img src={rev?.usersPhoto} className='h-11 rounded-2xl' alt="" />

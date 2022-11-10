@@ -14,8 +14,10 @@ const Myreviews = () => {
     }, [user.email])
 
 
-    const handleUpdate = (_id) => {
-        console.log(_id);
+    const handleUpdate = (_id, event) => {
+        event.preventDefault();
+        const form = event.target;
+        console.log(_id, form);
         // fetch(`http://localhost:5000/userreviews/${_id}`, {
         //     method: 'PATCH',
         //     headers: {
@@ -74,9 +76,9 @@ const Myreviews = () => {
                             <img src={myOrder.usersPhoto} className='h-11 rounded-2xl' alt="" />
                             <h1 className='text-xl font-bold'>{myOrder.usersName}</h1>
                         </div>
-                        <div>
-                            <p>{myOrder.review}</p>
-                        </div>
+                        <form>
+                            <input type="text" name='review' className="input input-bordered input-primary w-full max-w-xs" value={myOrder.review} />
+                        </form>
                         <div className='my-2'>
                             <button onClick={() => handleUpdate(myOrder._id)} className='btn btn-success mx-2'>Edit</button>
                             <button onClick={() => handleDelete(myOrder._id)} className='btn btn-error mx-2'>Delete</button>
