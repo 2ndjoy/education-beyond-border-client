@@ -32,7 +32,7 @@ const routes = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://b6a11-service-review-server-side-roan.vercel.app/services')
             },
             {
                 path: '/login',
@@ -45,7 +45,7 @@ const routes = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <PrivateRoute><DetailsWithReviews></DetailsWithReviews></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://b6a11-service-review-server-side-roan.vercel.app/services/${params.id}`)
             },
             {
                 path: '/profile',
@@ -54,7 +54,7 @@ const routes = createBrowserRouter([
             {
                 path: '/addService',
                 element: <AddService></AddService>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://b6a11-service-review-server-side-roan.vercel.app/services')
             },
             {
                 path: '*',

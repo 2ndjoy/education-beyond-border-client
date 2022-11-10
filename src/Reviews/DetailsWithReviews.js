@@ -14,7 +14,7 @@ const DetailsWithReviews = () => {
     // console.log(service);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews`)///
+        fetch(`https://b6a11-service-review-server-side-roan.vercel.app/reviews`)///
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [loading]) //
@@ -36,7 +36,7 @@ const DetailsWithReviews = () => {
         }
         console.log(addedReview)
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://b6a11-service-review-server-side-roan.vercel.app/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

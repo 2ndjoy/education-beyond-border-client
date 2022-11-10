@@ -4,7 +4,7 @@ import { AuthContext } from '../UserContext/AuthProvider/AuthProvider';
 
 const Myreviews = () => {
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/userreviews?email=${user.email}`;
+    const url = `https://b6a11-service-review-server-side-roan.vercel.app/userreviews?email=${user.email}`;
 
     const [myreviews, setMyReviews] = useState([]);
     // const { usersName, service_Name, usersPhoto, review } = myorders;
@@ -23,7 +23,7 @@ const Myreviews = () => {
         console.log(url, review);
 
 
-        fetch(`http://localhost:5000/userreviews/${revvv._id}`, {
+        fetch(`https://b6a11-service-review-server-side-roan.vercel.app/userreviews/${revvv._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -51,7 +51,7 @@ const Myreviews = () => {
         console.log(_id);
         const procced = window.confirm('Are you sure to confirm this order');
         if (procced) {
-            fetch(`http://localhost:5000/userreviews/${_id}`, {
+            fetch(`https://b6a11-service-review-server-side-roan.vercel.app/userreviews/${_id}`, {
                 method: 'DELETE',
 
             })
