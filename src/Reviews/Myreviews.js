@@ -14,10 +14,11 @@ const Myreviews = () => {
     }, [user.email])
 
 
-    const handleUpdate = (_id, event) => {
+    const handleUpdate = (event) => {
         event.preventDefault();
         const form = event.target;
-        console.log(_id, form);
+        const review = form.review.value;
+        console.log(review)
         // fetch(`http://localhost:5000/userreviews/${_id}`, {
         //     method: 'PATCH',
         //     headers: {
@@ -69,20 +70,22 @@ const Myreviews = () => {
     return (
         <div>
             {
-                myreviews.map(myOrder => <div className='my-11 '>
-                    <h2 className='text-2xl text-center'>This is your review {myOrder.service_Name}</h2>
+                myreviews.length === 0 ? <p className='text-warning text-2xl font-bold text-center my-80'>You haven't given any review</p> : myreviews.map(myOrder => <div className='my-11 '>
+                    <h2 className='text-2xl text-center'>This is your review regarding {myOrder.service_Name}</h2>
                     <div className='grid text-center justify-center my-11 mx-8 border-2 border-success rounded-lg p-4'>
                         <div className='flex items-center gap-2 my-4'>
                             <img src={myOrder.usersPhoto} className='h-11 rounded-2xl' alt="" />
                             <h1 className='text-xl font-bold'>{myOrder.usersName}</h1>
                         </div>
-                        <form>
-                            <input type="text" name='review' className="input input-bordered input-primary w-full max-w-xs" value={myOrder.review} />
+
+                        <form onSubmit={handleUpdate} className='lg:mx-24 my-2 lg:flex lg:justify-evenly items-center'>
+                            <div className=''>
+                                <textarea name='review' className="textarea textarea-secondary w-full my-5" value={myOrder.review} required></textarea>
+                            </div>
+                            <input className='btn btn-success mx-2' type="submit" value="Edit" />
+
                         </form>
-                        <div className='my-2'>
-                            <button onClick={() => handleUpdate(myOrder._id)} className='btn btn-success mx-2'>Edit</button>
-                            <button onClick={() => handleDelete(myOrder._id)} className='btn btn-error mx-2'>Delete</button>
-                        </div>
+                        <button onClick={() => handleDelete(myOrder._id)} className='btn btn-error mx-2'>Delete</button>
                     </div>
 
                 </div>)
