@@ -50,6 +50,10 @@ const routes = createBrowserRouter([
                 path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
             },
+            // {
+            //     path: '/reviews',
+            //     element: 
+            // },
             {
                 path: '*',
                 element: <div className="flex">
